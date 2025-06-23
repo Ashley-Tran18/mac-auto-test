@@ -1,0 +1,20 @@
+local D://URL -> git remote add "URL" -> github Repos
+
+đẩy code lên git
+1. git status: check các file có màu red (chưa đc ghi nhận để push code)
+2. git add files: (git add .\test.py)
+3. git status
+4. git commit -m "truyền message vào"
+5. git push: push code lên github
+
+
+kéo code về làm tiếp
+1. git clone URL: clone 1 lần duy nhất
+2. git pull: sau khi đã clone thì chỉ pull ko clone nữa
+
+
+Bài tập
+1. chuyển khởi tạo drive -> basetest
+2. tạo 1 test 
+3. tạo 1 file login_test.py trong thư mục test
+4. viết  

@@ -1,0 +1,33 @@
+Context
+
+- WebDriver: 
+cài selenium trên VScode -> sinh ra 1 driver(driver lấy từ selenium) -> driver đóng vai trò nói chuyên 2 chiều -> 
+ghi lên VSCode những yêu cầu -> drvier talk to browser -> browser sẽ thực hiện những yêu cầu đó
+
+- Run test with browser
+
+properties: ko có dấu () -> properties là những thuộc tính của driver
+driver.current_url: lấy URL hiện tại của trang web
+driver.current_window_handle: lấy handle của cửa sổ hiện tại
+driver.current_window_handles: lấy tất cả các handle của cửa sổ đang mở
+driver.name: biết tên browser: Chrome, Firefox, Safari, Edge, Opera
+driver.page_source: lấy mã nguồn HTML của trang hiện tại
+driver.title: lấy tiêu đề của trang hiện tại
+https: //abc.com : get URL để assert xem có đúng URL/ page ko
+
+
+hàm():
+driver.close(): đóng cửa sổ hiện tại nhưng không thoát khỏi trình duyệt
+driver.quit(): đóng cửa sổ hiện tại và thoát khỏi trình duyệt
+driver.switch_to_alert(): chuyển đến cửa sổ thông báo (alert) hiện tại
+driver.switch_to_frame(): chuyển đến một iframe cụ thể
+driver.switch_to_window(): chuyển đến một cửa sổ cụ thể
+driver.implicitly_wait(): đặt thời gian chờ ngầm định cho các hành động tìm kiếm phần tử => luôn luôn chờ đúng số giây đã cài đặt(called hardcode wait)
+explicit wait: chờ đến khi một điều kiện cụ thể xảy ra trước khi tiếp tục thực hiện các hành động khác = webdriverwait
+driver.set_page_load_timeout(): đặt thời gian chờ tải trang
+driver.set_script_timeout(): đặt thời gian chờ cho các lệnh JavaScript
+
+browser navigation
+driver.back()
+
+
