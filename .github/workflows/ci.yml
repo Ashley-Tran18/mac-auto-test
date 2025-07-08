@@ -20,8 +20,8 @@ jobs:
       fail-fast: false
       matrix:
         suite:
-          - tests/test_admin.py
           - tests/test_login.py
+          - tests/test_admin.py
           - tests/test_vacancy.py
 
     steps:
