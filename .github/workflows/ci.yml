@@ -120,14 +120,8 @@ jobs:
     if: always()
     environment:
       name: github-pages
-      # url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-      - name: Output Allure URL in Summary
-        run: |
-          echo "### ✅ Allure Report deployed to:" >> $GITHUB_STEP_SUMMARY
-          echo "[🔗 Click to view](${{ steps.deployment.outputs.page_url }})" >> $GITHUB_STEP_SUMMARY
-																																	
