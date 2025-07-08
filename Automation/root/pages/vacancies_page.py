@@ -158,14 +158,6 @@ class VacanciesPage():
     # 10.	Select Job Title = Automation Tester and Hiring Manager = current login user then click on Search button
     # 11.	Verify there is at least one items exist
 
-#     # 3. Select Job Title = Automation Tester
-# job_title_select = Select(driver.find_element(By.ID, "vacancySearch_jobTitle"))
-# job_title_select.select_by_visible_text("Automation Tester")
-
-# # 4. Select Hiring Manager = current user (e.g., admin)
-# hiring_manager_select = Select(driver.find_element(By.ID, "vacancySearch_hiringManager"))
-# hiring_manager_select.select_by_visible_text("Admin")  # Use exact visible text
-
     def filter_vacancy(self):
         select_job_title = WebDriverWait(self.driver, self.timeout).until(
             lambda d: d.find_element(By.XPATH, "//div[@role='listbox']//span[text()='Automaton Tester']")
