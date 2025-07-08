@@ -1,0 +1,28 @@
+Session 4 - WebElement - Locating UI Element
+
+Element là sự hoà trộn của HTML, CSS và JavaScript
+html: 
+<input> username <input>
+<input> password <input>
+<button> login <button>
+
+CSS: trang trí, trang điểm cho đẹp mắt
+JavaScript: hành động, tương tác với người dùng
+WebElement là một đối tượng đại diện cho một phần tử trong DOM (Document Object Model) của trang web. 
+Nó cho phép bạn tương tác với các phần tử HTML, như nhấp chuột, nhập văn bản, lấy thuộc tính, v.v.
+
+
+Các phương thức thường dùng:
+- find_elements(By.ID): Tìm phần tử theo ID
+- find_elements(By.NAME): Tìm phần tử theo tên
+- find_elements(By.XPATH): Tìm phần tử theo XPath
+- find_elements(By.CSS_SELECTOR): Tìm phần tử theo CSS Selector
+- find_elements(By.CLASS_NAME): Tìm phần tử theo tên lớp
+- find_elements(By.TAG_NAME): Tìm phần tử theo tên thẻ
+- find_elements(By.LINK_TEXT): Tìm phần tử theo văn bản liên kết
+- find_elements(By.PARTIAL_LINK_TEXT): Tìm phần tử theo một phần của văn bản liên kết
+
+Xpath: Ngôn ngữ truy vấn để tìm kiếm các phần tử trong tài liệu XML hoặc HTML.
+Xpath có thể được sử dụng để xác định vị trí của các phần tử trong DOM.
+Xpath cơ bản:
+- By.XPath, "//"

@@ -1,0 +1,83 @@
+UI Automation Test for a Mock Project
+Overview
+This exercise will helps you to understand the following points:
+•	How to capture element effectly
+•	Working with basic web elements such as testbox, dropdown list, link, ...
+•	Implement test scripts for defined test cases
+
+Application under test: https://opensource-demo.orangehrmlive.com
+Test Case
+Login-001: Log in successfull
+1.	Go to the OrangeHRM website
+2.	Verify that the login page will dispatch with Username and Password fields
+3.	Fill the username = Admin and Password = admin123 then click on the Login button
+4.	Verify that the management page displays
+5.	Verify that Recruiment left menu displays
+6.	Select the user profile > Select Logout item
+7.	Verify that the loging page displays
+
+Login-002: Log in unsuccessfully
+1.	Go to the OrangeHRM website
+2.	Verify that the login page will dispatch with Username and Password fields
+3.	Don't input anything and click on the Login button
+4.	Verify that there is Required error for both username and password
+5.	Fill the username = Admin1 and Password = admin123 then click on the Login button
+6.	Veify that "Invalid credentials" message displays
+7.	Fill the username = Admin and Password = admin123 then click on the Login button
+8.	Verify that the management page displays
+9.	Select the user profile > Select Logout item
+
+Vacancy-001: Able to create a new Automation Tester Vacancy
+1.	Go to the OrangeHRM website and login with account=Admin
+2.	Click on the Recruitment left menu > Select Vacancies tab
+3.	Select "+Add" button
+4.	Verify that the Ad Vacancy page displayed
+5.	Input the Vacancy Name = Automation Tester For Current Date, Job Title = Automation Tester, Description = Automation Test Is Running, Hiring Manager = current login user, Number of Position = 1, Active = False, Publish in RSS Feb and Web Page = True
+6.	Click the Save button
+7.	Verify the Edit Vacancy page displays
+8.	Click on Cancel button
+9.	Verify the Vacancies page dispatch again
+10.	Select Job Title = Automation Tester and Hiring Manager = current login user then click on Search button
+11.	Verify there is at least one items exist
+12.	Verify all data dispatch matching with the inputted data
+13.	Select the user profile > Select Logout item
+
+Vacancy-0002: Able to filter the vacancies based on Job Title
+1.	Go to the OrangeHRM website and login with account=Admin
+2.	Click on the Recruiment left menu > Select Vacancies tab
+3.	On Job Title, select the first job title then click on the Search button
+4.	Verify all the returned records matching with the filter
+5.	Repeat for all remaining items
+
+Vacancy-0003: Able to filter the vacancies based on Vacancy
+1.	Go to the OrangeHRM website and login with account=Admin
+2.	Click on the Recruiment left menu > Select Vacancies tab
+3.	On Vacancy, select the first vacancy then click on the Search button
+4.	Verify all the returned records matching with the filter
+5.	Repeat for all remaining itmes
+
+Vacancy-0004: Able to filter the vacancies based on Hiring Manager
+1.	Go to the OrangeHRM website and login with account=Admin
+2.	Click on the Recruiment left menu > Select Vacancies tab
+3.	On Vacancy, select the first Hiring Manager then click on the Search button
+4.	Verify all the returned records matching with the filter
+5.	Repeat for all remaining itmes
+
+Vacancy-0005: Able to filter the vacancies based on Status
+1.	Go to the OrangeHRM website and login with account=Admin
+2.	Click on the Recruitment left menu > Select Vacancies tab
+3.	On Vacancy, select the first Status then click on the Search button
+4.	Verify all the returned records matching with the filter
+5.	Repeat for all remaining items
+
+Vacancy-0006: Able to filter the vacancies based on multiple filters
+1.	Go to the OrangeHRM website and login with account=Admin
+2.	Click on the Recruitment left menu > Select Vacancies tab
+3.	On Vacancy, select Job Title, Vacancy, Hiring Manager, Status then click on the Search button
+4.	Verify all the returned records matching with the filter
+5.	On Vacancy, select Job Title, Vacancy then click on the Search button
+6.	Verify all the returned records matching with the filter
+7.	On Vacancy, select Job Vacancy, Hiring Manager, Status then click on the Search button
+8.	Verify all the returned records matching with the filter
+
+

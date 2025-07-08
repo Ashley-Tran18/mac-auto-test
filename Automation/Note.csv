@@ -3,3 +3,70 @@ pwd: find location
 
 steps:
 stage -> commit -> push
+
+git checkout -b <branch_name>
+
+
+Basic BaseTest structure:
+project_root/
+|
+|-- conftest.py
+|-- requirement.txt
+|
+|-- base/
+|   |-- __init__.py ???
+|   |-- base_test.py  <- BaseTest class uses driver fixture
+|
+|-- pages/
+|   |-- __init__.py ???
+|   |-- login_page.py
+|   |-- dashboard_page.py
+|
+|-- tests/
+|   |-- __init__.py ???
+|   |-- test_login.py  <-Extends BaseTest
+|   |-- test_dashboard.py
+
+
+element lấy từ selenium thông qua driver.
+
+URL: cd /Users/ashley/Documents/my-project/Automation/root
+pytest -v
+
+
+📌 Khi nào dùng request.cls.driver? Trường hợp nên dùng:
+- Test nằm trong class?	✅ Có
+- Muốn dùng self.driver trong các method?	✅ Có
+- Không muốn truyền driver vào từng hàm test?	✅ Có
+
+
+📌 Khi nào nên dùng autouse=True? Dùng khi bạn muốn
+- Thiết lập một môi trường mặc định	VD: mở trình duyệt, set up database, mock data
+- Dọn dẹp sau mỗi test	Dùng yield trong fixture để cleanup sau khi test chạy xong
+- Không muốn phải khai báo fixture trong từng test	Giảm boilerplate code
+
+
+Code template to check if toggle is on or off and turn on/off toggle 
+
+    toggle = driver.find_element(By.ID, "myToggle")
+
+    # Kiểm tra toggle đang bật hay tắt
+    is_on = toggle.is_selected()
+    print("Toggle is on?" , is_on)
+
+    # Bật toggle nếu đang tắt
+    if not is_on:
+        toggle.click()
+
+    # Tắt toggle nếu đang bật
+    if is_on:
+        toggle.click()
+
+    # Bật lên nếu đang OFF
+    if not is_on:
+        toggle.click()  
+    else:
+        print("Toggle is already ON, no action taken.")
+
+
+setTimeout(() => {debugger;}, 3000)

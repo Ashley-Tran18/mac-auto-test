@@ -1,0 +1,3 @@
+Page has:
+WebElement: username, password, button
+Method: chứa các hàm: nhập username, nhập passoword, click button

@@ -1,0 +1,17 @@
+Implicit Wait:
+effect trên tổng thể
+driver sẽ chờ đúng thời gian implicit wait đã đc setup (luôn luôn gắn chặt time setup-> ảnh hưởng performance)
+after openning the page, wait 10s before finding element
+
+=
+
+time.sleep:
+đứng chờ sau time set, rồi mới làm tiếp
+sleep chỉ apply cho 1 dòng code
+
+#
+
+Explicit Wait:
+WebDriverWait -> chờ tối đa 10s -> if thỏa điều kiện (3s) -> run code
+
+

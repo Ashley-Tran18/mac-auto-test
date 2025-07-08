@@ -1,0 +1,12 @@
+{
+    "base_url": "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",
+    "username": "Admin",
+    "password": "admin123",
+    "timeout": "20",
+    "new-user": {
+        "vacancy_name": "Trần Ngọc Ngân Thảo",
+        "job_title": "Automaton Tester",
+        "description": "Automation Test Is Running",
+        "number_of_position": "1"
+    }
+}

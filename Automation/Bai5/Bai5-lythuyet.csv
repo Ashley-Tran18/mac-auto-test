@@ -1,0 +1,15 @@
+if not checkbox1.is_selected():
+    checkbox1.click()
+
+if điều kiện (thỏa) => True:
+ - > do it
+
+if điều kiện (ko thỏa) => False
+ -> not do 
+
+
+# Chạy JavaScript bên trong trình duyệt thông qua Selenium.
+execute_script()	Dùng được cả khi element ẩn
+ex: driver.execute_script("arguments[0].value = 'hello'", displayed_textbox)
+
+

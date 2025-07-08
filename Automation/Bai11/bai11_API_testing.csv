@@ -1,0 +1,24 @@
+API request:
+API request method:
+ - Get: gọi xuống server để lấy data
+ - Post: khởi tạo resource ở dưới serve
+ - Put: dựa vào resource có sẵn để thay thế, edit,..
+ - Delete:
+ - Patch: thay đổi 1 phần nhỏ(1 phần tử, vd: username/ age)
+
+API request status code
+1XX -> 100/ 101: thôn tin của API
+2XX -> 200 / 201: success codes
+3XX -> 300 / 301: redirect trình duyệt web -> URL khác
+4XX -> 400 / 404 : bắt đầu = 4 => sẽ báo lỗi (lỗi phía client, người gọi req)
+5XX -> 500 : lỗi ở server
+
+
+API response
+- thấy đc data trả về ->
+
+Thư viện trong python
+- request
+
+Making API Call:
+

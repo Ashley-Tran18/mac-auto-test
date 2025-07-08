@@ -18,3 +18,8 @@ Bài tập
 2. tạo 1 test 
 3. tạo 1 file login_test.py trong thư mục test
 4. viết  
+
+create basetest step:
+1. create driver
+2. gắn driver
+3. quit driver

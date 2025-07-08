@@ -1,0 +1,9 @@
+hàm: ()
+property: ko có dấu ()
+ex: .text
+
+hàm: 
+.get_attribute()
+
+dấu "1/" là đường dẫn tuyệt đối
+dấu "//" là đường dẫn relative, đi đến nơi thoả điều kiện
