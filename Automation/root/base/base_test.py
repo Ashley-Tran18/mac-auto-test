@@ -2,13 +2,11 @@
 
 from selenium import webdriver
 from utils.config_reader import ConfigReader
-import pytest
-import allure
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
-
-
+import pytest
+import allure
 
 
 class BaseTest:
