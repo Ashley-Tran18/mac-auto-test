@@ -158,11 +158,11 @@ class VacanciesPage():
     # 10.	Select Job Title = Automation Tester and Hiring Manager = current login user then click on Search button
     # 11.	Verify there is at least one items exist
 
-    def filter_vacancy(self):
-        select_job_title = WebDriverWait(self.driver, self.timeout).until(
-            lambda d: d.find_element(By.XPATH, "//div[@role='listbox']//span[text()='Automaton Tester']")
-        )
-        select_job_title.select_by_visible_text("Automaton Tester")
+    # def filter_vacancy(self):
+    #     select_job_title = WebDriverWait(self.driver, self.timeout).until(
+    #         lambda d: d.find_element(By.XPATH, "//div[@role='listbox']//span[text()='Automaton Tester']")
+    #     )
+    #     select_job_title.select_by_visible_text("Automaton Tester")
 
         # select_hiring_manager = WebDriverWait(self.driver, self.timeout).until(
         #     lambda d: d.find_element(By.XPATH, "//span[@class = 'oxd-userdropdown-tab']")
