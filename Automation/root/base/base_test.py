@@ -4,6 +4,11 @@ from selenium import webdriver
 from utils.config_reader import ConfigReader
 import pytest
 import allure
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+
+
 
 
 class BaseTest:
@@ -18,7 +23,12 @@ class BaseTest:
 
     @pytest.fixture(autouse=True)
     def setup(self,request):
-        self.driver = webdriver.Chrome()  
+        # self.driver = webdriver.Chrome()  
+        options = Options()
+        options.add_argument('--headless')
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
+        self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
         self.driver.get(ConfigReader.get_base_url())
     
         self.driver.maximize_window()
