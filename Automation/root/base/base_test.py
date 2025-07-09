@@ -24,11 +24,12 @@ class BaseTest:
     @pytest.fixture(autouse=True)
     def setup(self,request):
         # self.driver = webdriver.Chrome()  
-        options = Options()
-        options.add_argument('--headless')
-        options.add_argument('--no-sandbox')
-        options.add_argument('--disable-dev-shm-usage')
-        self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+        # options = Options()
+        # options.add_argument('--headless')
+        # options.add_argument('--no-sandbox')
+        # options.add_argument('--disable-dev-shm-usage')
+        # self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+        self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
         self.driver.get(ConfigReader.get_base_url())
     
         self.driver.maximize_window()
