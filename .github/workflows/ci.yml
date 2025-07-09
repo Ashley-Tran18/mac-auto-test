@@ -22,7 +22,7 @@ jobs:
         suite:
           - Automation/root/tests/test_login.py
           - Automation/root/tests/test_admin.py
-          - Automation/root/tests/test_vacancy.py
+          - Automation/root/tests/test_vacancies.py
 
     steps:
       - name: Checkout code
