@@ -1,3 +1,0 @@
-Admin name extracted: 'Ahmeda Zawar'
-Active is on? True
-Publish toggle is ON

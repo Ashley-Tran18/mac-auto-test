@@ -16,16 +16,23 @@ class TestVacancies(BaseTest):
         vacancies_page.navigate_to_vacancies()
         vacancies_page.click_add_button()
 
-        vacancy_data = ConfigReader.get_vacancy_info()
-        vacancies_page.add_vacancy(vacancy_data)
+        # vacancy_data = ConfigReader.get_vacancy_info()
+        # vacancies_page.add_vacancy(vacancy_data)
+        vacancies_page.add_vacancy(ConfigReader.get_vacancy_info())
+        vacancies_page.select_job_title(ConfigReader.get_vacancy_info())
+        vacancies_page.input_description(ConfigReader.get_vacancy_info())
+        vacancies_page.select_hiring_manager()
+        vacancies_page.input_position(ConfigReader.get_vacancy_info())
+        vacancies_page.check_toggle()
         
-        # toast_text = vacancies_page.is_vacancy_added_successfully()
-        # assert toast_text == "Successfully Saved"
+        # assert vacancies_page.is_vacancy_added_successfully() == "Successfully Saved"
 
-        vacancies_page.navigate_to_edit_vacancy()
-        check, message = vacancies_page.is_edit_header_display()
-        assert check, message
+        # edit_text = vacancies_page.is_edit_header_display()
+        # assert edit_text == "Edit Vacancy"
+        assert vacancies_page.is_edit_header_display() == "Edit Vacancy"
 
         vacancies_page.cancel_edit()
-        check, message = vacancies_page.is_vacancy_page_display()
-        assert check, message
+
+        assert vacancies_page.verify_vacancy_page_display() == "Vacancies"
+
+        vacancies_page.filter_vacancy(ConfigReader.get_vacancy_info())

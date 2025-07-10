@@ -36,41 +36,46 @@ class VacanciesPage():
     #  get data from json file
     def add_vacancy(self, vacancy_data):
         vacancy_name = vacancy_data['vacancy_name']
-        job_title = vacancy_data['job_title']
-        description = vacancy_data['description']
-        number_of_position = vacancy_data['number_of_position']
+        # job_title = vacancy_data['job_title']
+        # description = vacancy_data['description']
+        # number_of_position = vacancy_data['number_of_position']
 
         # fill in vacancy name
         vacancy_name_input = WebDriverWait(self.driver, self.timeout).until(
             lambda d: d.find_element(By.XPATH, "//label[text()='Vacancy Name']/ancestor::div[contains(@class, 'oxd-input-group')]/descendant::input")
         )
         vacancy_name_input.send_keys(vacancy_name)
-        
+    
+    def select_job_title(self, vacancy_data):
+        job_title = vacancy_data['job_title']
         # click on dropdown to select Job Title
         job_title_dropdown = WebDriverWait(self.driver, self.timeout).until(
             lambda d: d.find_element(By.XPATH, "//div[@class = 'oxd-select-text-input']")
         )
         job_title_dropdown.click()
-
+    
         # select Job Title option in dropdown
         select_job_title = WebDriverWait(self.driver, self.timeout).until(
             lambda d: d.find_element(By.XPATH, f"//div[@role='listbox']//span[text()='{job_title}']")
         )
         select_job_title.click()
-        
+
+    def input_description(self, vacancy_data):
+        description = vacancy_data['description']
         # fill in the description 
         description_input = WebDriverWait(self.driver, self.timeout).until(
             lambda d: d.find_element(By.XPATH, "//textarea[@placeholder='Type description here']")
         )
         description_input.send_keys(description)
-        
+    
+    def select_hiring_manager(self):  
         # find Admin name element
         admin_element = WebDriverWait(self.driver, self.timeout).until(
             EC.visibility_of_element_located((By.XPATH, "//span[@class = 'oxd-userdropdown-tab']"))
         )
-        admin_name = admin_element.text.strip()
+        admin_name = admin_element.text
         print(f"Admin name extracted: '{admin_name}'")
-        
+     
         # input the name in Hiring Manager field
         hiring_manager_input = WebDriverWait(self.driver, self.timeout).until(
             lambda d: d.find_element(By.XPATH, "//label[text()='Hiring Manager']//following::input[@placeholder='Type for hints...']")
@@ -83,13 +88,15 @@ class VacanciesPage():
         actions.send_keys(Keys.ARROW_DOWN).send_keys(Keys.ENTER).perform()
         sleep(5)
 
+    def input_position(self, vacancy_data):
+        number_of_position = vacancy_data['number_of_position']
         # fill in number
         number_of_position_input = WebDriverWait(self.driver, self.timeout).until(
             lambda d: d.find_element(By.XPATH, "//label[text()='Number of Positions']//following::input[@class='oxd-input oxd-input--active']")
         )
         number_of_position_input.send_keys(number_of_position)
 
-
+    def check_toggle(self):
         # find the hidden Active checkbox input element
         active_checkbox = WebDriverWait(self.driver, self.timeout).until(
              lambda d: d.find_element(By.XPATH, "//p[text()='Active']/ancestor::div[contains(@class,'orangerhrm-switch-wrapper')]/descendant::input[@type='checkbox']")
@@ -112,36 +119,25 @@ class VacanciesPage():
             print("Publish toggle is ON")
         else:
             self.driver.execute_script("arguments[0].click();", publish_toggle)
-        
+ 
         # click on Save button 
         save_btn = WebDriverWait(self.driver, self.timeout).until(
             lambda d: d.find_element(By.XPATH, "//button[@type ='submit']")
         )
         save_btn.click()
-        sleep(5)
     
-
-    # check if the vacancy is added successfully
+    # # check if the vacancy is added successfully
     # def is_vacancy_added_successfully(self):
     #     toast = WebDriverWait(self.driver, self.timeout).until(
     #         EC.visibility_of_element_located((By.XPATH, "//div[@id='oxd-toaster_1']//p[text()= 'Successfully Saved']"))
     #     )
-    #     return toast.text.strip()
-
-        self.driver.back()
-        sleep(10)
-
-    def navigate_to_edit_vacancy(self):
-        edit_btn = WebDriverWait(self.driver, self.timeout).until(
-            lambda d: d.find_element(By.XPATH, "//div[text()= 'Trần Ngọc Ngân Thảo']//following::i[@class= 'oxd-icon bi-pencil-fill']")
-        )
-        edit_btn.click()
+    #     return toast.text
     
     def is_edit_header_display(self):
         edit_header = WebDriverWait(self.driver, self.timeout).until(
             EC.presence_of_element_located((By.XPATH, "//h6[text()='Edit Vacancy']"))
         )
-        return edit_header.is_displayed(), "Edit page not visible"
+        return edit_header.text
     
     def cancel_edit(self):
         cancel_btn = WebDriverWait(self.driver, self.timeout).until(
@@ -149,25 +145,46 @@ class VacanciesPage():
         )
         cancel_btn.click()
 
-    def is_vacancy_page_display(self):
+    def verify_vacancy_page_display(self):
         vacancy_header = WebDriverWait(self.driver, self.timeout).until(
             lambda d: d.find_element(By.XPATH, "//a[text() = 'Vacancies']")
         )
-        return vacancy_header.is_displayed(), "Vacancy page not visible"
+        return vacancy_header.text
     
     # 10.	Select Job Title = Automation Tester and Hiring Manager = current login user then click on Search button
     # 11.	Verify there is at least one items exist
 
-    # def filter_vacancy(self):
-    #     select_job_title = WebDriverWait(self.driver, self.timeout).until(
-    #         lambda d: d.find_element(By.XPATH, "//div[@role='listbox']//span[text()='Automaton Tester']")
-    #     )
-    #     select_job_title.select_by_visible_text("Automaton Tester")
+    def filter_vacancy(self, vacancy_data):
+        self.select_job_title(vacancy_data)
 
-        # select_hiring_manager = WebDriverWait(self.driver, self.timeout).until(
-        #     lambda d: d.find_element(By.XPATH, "//span[@class = 'oxd-userdropdown-tab']")
-        # )
-        # select_hiring_manager.select_by_visible_text("")
+        admin_element = WebDriverWait(self.driver, self.timeout).until(
+            EC.visibility_of_element_located((By.XPATH, "//span[@class = 'oxd-userdropdown-tab']"))
+        )
+        admin_name = admin_element.text
+        print(f"Admin name extracted: '{admin_name}'")
+
+        # input the name in Hiring Manager field
+        hiring_manager_input = WebDriverWait(self.driver, self.timeout).until(
+            lambda d: d.find_element(By.XPATH, "//label[contains(text(), 'Hiring Manager')]/following::div[contains(text(), '-- Select --')]")
+        )
+        # fill in the name on the hiring_manager_input field
+        hiring_manager_input.send_keys(admin_name)
+        sleep(2)
+        # Use ActionChains to move to the first suggestion and click it
+        actions = ActionChains(self.driver)
+        actions.send_keys(Keys.ARROW_DOWN).send_keys(Keys.ENTER).perform()
+        sleep(5)
+
+
+        search_btn = WebDriverWait(self.driver, self.timeout).until(
+            lambda d: d.find_element(By.XPATH, "//button[@type='submit']")
+        )
+        search_btn.click()
+
+
+        
+
+
 
 
 

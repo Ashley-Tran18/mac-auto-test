@@ -23,8 +23,8 @@ class BaseTest:
     def setup(self,request):
         # self.driver = webdriver.Chrome()  
         options = Options()
-        options.add_argument('--headless')
-        options.add_argument('--no-sandbox')
+        # options.add_argument('--headless')
+        # options.add_argument('--no-sandbox')
         options.add_argument('--disable-dev-shm-usage')
         self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
         self.driver.get(ConfigReader.get_base_url())
